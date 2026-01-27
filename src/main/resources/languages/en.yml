@@ -1,0 +1,30 @@
+# >------------------------------------------------------------------------------------------< #
+# |  ____                 _       _____              _                                       | #
+# | |  _ \               | |     / ____|            | |                                      | #
+# | | |_) |  __ _  _ __  | | __ | (___   _   _  ___ | |_  ___  _ __ ___                      | #
+# | |  _ <  / _` || '_ \ | |/ /  \___ \ | | | |/ __|| __|/ _ \| '_ ` _ \                     | #
+# | | |_) || (_| || | | ||   <   ____) || |_| |\__ \| |_|  __/| | | | | |                    | #
+# | |____/  \__,_||_| |_||_|\_\ |_____/  \__, ||___/ \__|\___||_| |_| |_|                    | #
+# |                                       __/ |                                              | #
+# |                                      |___/                                               | #
+# |     by Daddel                                                                            | #
+# |                                                                                          | #
+# |   en.yml                                                                                 | #
+# |                                                                                          | #
+# |   Version: 1.1                                                                           | #
+# >------------------------------------------------------------------------------------------< #
+
+# Customize your messages
+current-balance: "%novabank_prefix% &7Your current balance is: &a$%novabank_balance%"
+no-permissions: "%novabank_prefix% &4You don't permissions to execute this command!"
+wrong-usage: "%novabank_prefix% &4Use: %novabank_default_commands%"
+not-enough-money: "%novabank_prefix% &4You don't have enough money!"
+invalid-amount: "%novabank_prefix% &4Invalid amount!"
+deposit-money: "%novabank_prefix% &aYou successfully deposit: $%novabank_deposit_amount%"
+withdraw-money: "%novabank_prefix% &aYou have successfully withdrawn: $%novabank_withdraw_amount%"
+new-balance: "%novabank_prefix% &aYour new balance is: $&a%novabank_balance%"
+player-not-found: "%novabank_prefix% &cPlayer %novabank_invalid_player% not found!"
+reset-money-confirm: "%novabank_prefix% &cYou have successfully reset the account of %novabank_target%!"
+remove-money-confirm: "%novabank_prefix% &cYou have removed $%novabank_removed_amount% from %novabank_target%'s account!"
+add-money-confirm: "%novabank_prefix% &aYou have added $%novabank_added_amount% to %novabank_target%'s account!"
+set-money-confirm: "%novabank_prefix% &cYou have set %novabank_target%'s account to $%novabank_setting_amount%!"

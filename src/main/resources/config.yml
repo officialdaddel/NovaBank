@@ -1,0 +1,30 @@
+# >------------------------------------------------------------------------------------------< #
+# |  ____                 _       _____              _                                       | #
+# | |  _ \               | |     / ____|            | |                                      | #
+# | | |_) |  __ _  _ __  | | __ | (___   _   _  ___ | |_  ___  _ __ ___                      | #
+# | |  _ <  / _` || '_ \ | |/ /  \___ \ | | | |/ __|| __|/ _ \| '_ ` _ \                     | #
+# | | |_) || (_| || | | ||   <   ____) || |_| |\__ \| |_|  __/| | | | | |                    | #
+# | |____/  \__,_||_| |_||_|\_\ |_____/  \__, ||___/ \__|\___||_| |_| |_|                    | #
+# |                                       __/ |                                              | #
+# |                                      |___/                                               | #
+# |     by Daddel                                                                            | #
+# |                                                                                          | #
+# |   config.yml                                                                             | #
+# |                                                                                          | #
+# |   Version: 1.1                                                                           | #
+# >------------------------------------------------------------------------------------------< #
+
+# Have found an error or do you speak another language? Join the discord to share your knowledge: https://discord.gg/3uNxXcmRdp
+# You can't add new languages! available languages: en, de, nl
+language: en
+
+# MySQL required!!
+# To use the database change the point "use" to "true" then connect your database with the plugin
+# If the usage is set to false then configs are created automatically!
+database:
+  use: false
+  host: localhost
+  port: 3306
+  database: database
+  username: username
+  password: password

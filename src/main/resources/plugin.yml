@@ -1,0 +1,17 @@
+name: NovaBank
+version: '1.4'
+main: net.daddel.novaBank.Main
+api-version: '1.21'
+author: Daddel
+website: https://github.com/officialdaddel
+description: Bank System for your server
+depend:
+  - PlaceholderAPI
+  - Vault
+commands:
+  bank:
+    description: Default bank command
+  bankadmin:
+    description: Admin command for NovaBank
+    aliases:
+      - ba
