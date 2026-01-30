@@ -1,17 +1,16 @@
 # >------------------------------------------------------------------------------------------< #
-# |  ____                 _       _____              _                                       | #
-# | |  _ \               | |     / ____|            | |                                      | #
-# | | |_) |  __ _  _ __  | | __ | (___   _   _  ___ | |_  ___  _ __ ___                      | #
-# | |  _ <  / _` || '_ \ | |/ /  \___ \ | | | |/ __|| __|/ _ \| '_ ` _ \                     | #
-# | | |_) || (_| || | | ||   <   ____) || |_| |\__ \| |_|  __/| | | | | |                    | #
-# | |____/  \__,_||_| |_||_|\_\ |_____/  \__, ||___/ \__|\___||_| |_| |_|                    | #
-# |                                       __/ |                                              | #
-# |                                      |___/                                               | #
+# |  _   _                      ____                 _                                       | #
+# | | \ | |                    |  _ \               | |                                      | #
+# | |  \| |  ___ __   __ __ _  | |_) |  __ _  _ __  | | __                                   | #
+# | | . ` | / _ \\ \ / // _` | |  _ <  / _` || '_ \ | |/ /                                   | #
+# | | |\  || (_) |\ V /| (_| | | |_) || (_| || | | ||   <                                    | #
+# | |_| \_| \___/  \_/  \__,_| |____/  \__,_||_| |_||_|\_\                                   | #
+# |                                                                                          | #
 # |     by Daddel                                                                            | #
 # |                                                                                          | #
 # |   nl.yml                                                                                 | #
 # |                                                                                          | #
-# |   Version: 1.1                                                                           | #
+# |   Version: 1.2                                                                           | #
 # >------------------------------------------------------------------------------------------< #
 
 # Je berichten aanpassen
@@ -28,3 +27,8 @@ reset-money-confirm: "%novabank_prefix% &cJe hebt het account van %novabank_targ
 remove-money-confirm: "%novabank_prefix% &cJe hebt $%novabank_removed_amount% van de rekening van %novabank_target% verwijderd!"
 add-money-confirm: "%novabank_prefix% &aJe hebt $%novabank_added_amount% toegevoegd aan de rekening van %novabank_target%!"
 set-money-confirm: "%novabank_prefix% &cJe hebt het saldo van %novabank_target% ingesteld op $%novabank_setting_amount%!"
+bank-menu:
+  cancel: "%novabank_prefix% &c&oGebruik CANCEL om af te breken."
+  cancel-confirm: "%novabank_prefix% &cU hebt de actie succesvol geannuleerd."
+  deposit: "%novabank_prefix% &aVoer het bedrag in dat je op je account wilt storten."
+  withdraw: "%novabank_prefix% &aVoer het bedrag in dat je van je rekening wilt opnemen."

@@ -10,7 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class Utilities {
    private final LanguageManager langMng = new LanguageManager();
-   public String prefix = String.valueOf(ChatColor.of("#8A2BE2")) + "BankSystem §8»§7";
+   public String prefix = String.valueOf(ChatColor.of("#8A2BE2")) + "NovaBank §8»§7";
    public String perms = "novabank.";
    public String admin;
 

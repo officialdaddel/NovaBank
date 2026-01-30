@@ -1,6 +1,8 @@
 package net.daddel.novaBank.commands;
 
 import me.clip.placeholderapi.PlaceholderAPI;
+import net.daddel.novaBank.Main;
+import net.daddel.novaBank.gui.GuiManager;
 import net.daddel.novaBank.utilities.Utilities;
 import net.daddel.novaBank.utilities.manager.ConfigManager;
 import net.daddel.novaBank.utilities.manager.DatabaseManager;
@@ -18,6 +20,7 @@ public class BankCommand implements CommandExecutor {
    private final DatabaseManager databaseManager = new DatabaseManager();
    private final ConfigManager configManager = new ConfigManager();
    private final EconomyManager economy = new EconomyManager();
+   private final GuiManager guiManager = new GuiManager(lang);
 
    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String s, @NotNull String[] args) {
       if (sender instanceof Player) {
@@ -106,7 +109,15 @@ public class BankCommand implements CommandExecutor {
                this.utilities.wrongUsage(player);
             }
          } else {
-            this.utilities.wrongUsage(player);
+            if(player.hasPermission(utilities.perms + "open") || player.hasPermission(utilities.admin)){
+               if(Main.configData.getConfig().getBoolean("gui.enabled")){
+                  guiManager.openInventory(player);
+               }else {
+                  this.utilities.wrongUsage(player);
+               }
+            }else {
+               this.utilities.wrongUsage(player);
+            }
          }
       } else {
          this.utilities.consoleError(sender);

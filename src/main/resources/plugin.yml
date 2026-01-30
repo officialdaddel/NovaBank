@@ -1,5 +1,5 @@
 name: NovaBank
-version: '1.4'
+version: '1.5'
 main: net.daddel.novaBank.Main
 api-version: '1.21'
 author: Daddel
@@ -15,3 +15,4 @@ commands:
     description: Admin command for NovaBank
     aliases:
       - ba
+  testcommand:

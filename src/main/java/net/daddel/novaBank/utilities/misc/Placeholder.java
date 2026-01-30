@@ -38,7 +38,7 @@ public class Placeholder extends PlaceholderExpansion {
       return this.utilities.version(Main.getPlugin());
    }
 
-   public String onPlaceholderRequest(OfflinePlayer player, String identifier) {
+   public String onPlaceholderRequest(Player player, String identifier) {
       if (identifier.equalsIgnoreCase("balance")) {
          return this.dbM.useDatabase() ? String.valueOf(this.dbM.getAmount(player.getUniqueId())) : String.valueOf(this.cfgM.getAmount(player));
       } else if (identifier.equalsIgnoreCase("prefix")) {
@@ -57,6 +57,8 @@ public class Placeholder extends PlaceholderExpansion {
          return String.valueOf(removedAmount.getOrDefault(player.getName(), 0));
       } else if (identifier.equalsIgnoreCase("added_amount")) {
          return String.valueOf(addedAmount.getOrDefault(player.getName(), 0));
+      }else if(identifier.equalsIgnoreCase("player_name")){
+         return player.getName();
       } else {
          return identifier.equalsIgnoreCase("setting_amount") ? String.valueOf(settingAmount.getOrDefault(player.getName(), 0)) : null;
       }

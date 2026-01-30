@@ -2,6 +2,7 @@ package net.daddel.novaBank;
 
 import net.daddel.novaBank.files.configData;
 import net.daddel.novaBank.files.data.bankData;
+import net.daddel.novaBank.gui.GuiManager;
 import net.daddel.novaBank.utilities.Utilities;
 import net.daddel.novaBank.utilities.manager.DatabaseManager;
 import net.daddel.novaBank.utilities.manager.EconomyManager;
@@ -16,6 +17,7 @@ public final class Main extends JavaPlugin {
    public static bankData bankData;
    private Utilities utilities;
    private DatabaseManager dbmng;
+   private GuiManager guiMng;
 
    public void onEnable() {
       plugin = this;
@@ -24,7 +26,8 @@ public final class Main extends JavaPlugin {
       LanguageManager langMng = new LanguageManager();
       langMng.registerLanguages(this);
       this.utilities = new Utilities();
-      Initializer initializer = new Initializer();
+      this.guiMng = new GuiManager(langMng);
+      Initializer initializer = new Initializer(guiMng, langMng, utilities);
       EconomyManager economyManager = new EconomyManager();
       initializer.registerCommands(this);
       initializer.registerListener(this);
@@ -33,7 +36,7 @@ public final class Main extends JavaPlugin {
       economyManager.setupEconomy(this);
       this.dbmng = new DatabaseManager();
       this.dbmng.setupDatabase(this);
-      (new UpdateChecker(this, 116303)).getVersion((version) -> {
+      new UpdateChecker(this, 116303).getVersion(version -> {
          if (this.getDescription().getVersion().equals(version)) {
             this.getLogger().info("There is not a new update available.");
          } else {

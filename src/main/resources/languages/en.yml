@@ -1,17 +1,16 @@
 # >------------------------------------------------------------------------------------------< #
-# |  ____                 _       _____              _                                       | #
-# | |  _ \               | |     / ____|            | |                                      | #
-# | | |_) |  __ _  _ __  | | __ | (___   _   _  ___ | |_  ___  _ __ ___                      | #
-# | |  _ <  / _` || '_ \ | |/ /  \___ \ | | | |/ __|| __|/ _ \| '_ ` _ \                     | #
-# | | |_) || (_| || | | ||   <   ____) || |_| |\__ \| |_|  __/| | | | | |                    | #
-# | |____/  \__,_||_| |_||_|\_\ |_____/  \__, ||___/ \__|\___||_| |_| |_|                    | #
-# |                                       __/ |                                              | #
-# |                                      |___/                                               | #
+# |  _   _                      ____                 _                                       | #
+# | | \ | |                    |  _ \               | |                                      | #
+# | |  \| |  ___ __   __ __ _  | |_) |  __ _  _ __  | | __                                   | #
+# | | . ` | / _ \\ \ / // _` | |  _ <  / _` || '_ \ | |/ /                                   | #
+# | | |\  || (_) |\ V /| (_| | | |_) || (_| || | | ||   <                                    | #
+# | |_| \_| \___/  \_/  \__,_| |____/  \__,_||_| |_||_|\_\                                   | #
+# |                                                                                          | #
 # |     by Daddel                                                                            | #
 # |                                                                                          | #
 # |   en.yml                                                                                 | #
 # |                                                                                          | #
-# |   Version: 1.1                                                                           | #
+# |   Version: 1.2                                                                           | #
 # >------------------------------------------------------------------------------------------< #
 
 # Customize your messages
@@ -28,3 +27,8 @@ reset-money-confirm: "%novabank_prefix% &cYou have successfully reset the accoun
 remove-money-confirm: "%novabank_prefix% &cYou have removed $%novabank_removed_amount% from %novabank_target%'s account!"
 add-money-confirm: "%novabank_prefix% &aYou have added $%novabank_added_amount% to %novabank_target%'s account!"
 set-money-confirm: "%novabank_prefix% &cYou have set %novabank_target%'s account to $%novabank_setting_amount%!"
+bank-menu:
+  cancel: "%novabank_prefix% &c&oUse CANCEL to cancel."
+  cancel-confirm: "%novabank_prefix% &cYou've successfully canceled the action."
+  deposit: "%novabank_prefix% &aEnter the amount you want to deposit to your bank account"
+  withdraw: "%novabank_prefix% &aEnter the amount you want to withdraw from your bank account."
