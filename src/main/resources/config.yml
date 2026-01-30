@@ -45,26 +45,51 @@ database:
 # | | (_ || |_| | | |  | #
 # |  \___| \___/ |___| | #
 # >--------------------< #
+
+# Customize the /bank menu
 gui:
+  # Set to true if you want to enable the bank menu
   enabled: true
+  # Set the inventory name of the menu
   title: "&9Bank"
+  # Change the size of gui
+  # Minimum size is 9
+  # Maximum size is 54
   size: 27
   placeholder:
+    # Display placeholder around the buttons
     use: true
+    # Change the material if you would like to
+    # default material: GRAY_STAINED_GLASS_PANE
     material: GRAY_STAINED_GLASS_PANE
+    # Set the name for the placeholder
+    # Use only color codes for an invisible name
     name: "&7"
   withdraw:
+    # Set the name for the withdraw button in the menu
     withdraw: "&4Withdraw"
+    # Change the material for the withdraw button
     material: RED_CONCRETE
+    # Set the display name for the withdraw button
     name: "&4Withdraw"
+    # Add a description for the withdraw item
+    # You can add multiple lines
     description:
       - "&7Withdraw money from your bank account"
   deposit:
+    # Set the name for the deposit button in the menu
     title: "&aDeposit"
+    # Change the material for the deposit button
     material: LIME_CONCRETE
+    # Set the display name for the deposit button
     name: "&aDeposit"
+    # Add a description for the deposit item
+    # You can add multiple lines
     description:
       - "&7Deposit money to your bank account"
   profile:
+    # Change the name of the profile item (head item)
     name: "&e%novabank_player_name%'s bank account money"
+    # Change the description for the profile item
+    # You can't add multiple lines!
     description: "&7Your current balance is $%novabank_balance%"
