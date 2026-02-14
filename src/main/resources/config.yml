@@ -69,8 +69,6 @@ gui:
     # Use only color codes for an invisible name
     name: "&7"
   withdraw:
-    # Set the name for the withdraw button in the menu
-    title: "&4Withdraw"
     # Change the material for the withdraw button
     material: RED_CONCRETE
     # Set the display name for the withdraw button
@@ -80,8 +78,6 @@ gui:
     description:
       - "&7Withdraw money from your bank account"
   deposit:
-    # Set the name for the deposit button in the menu
-    title: "&aDeposit"
     # Change the material for the deposit button
     material: LIME_CONCRETE
     # Set the display name for the deposit button

@@ -73,6 +73,8 @@ public class GuiManager {
         List<String> lore = getLore(path);
         if (lore == null) lore = new ArrayList<>();
 
+        lore = PlaceholderAPI.setPlaceholders(player, lore);
+
         ItemStack itemStack = new ItemStack(material);
         ItemMeta meta = itemStack.getItemMeta();
         if (meta == null) return;
@@ -108,7 +110,7 @@ public class GuiManager {
     }
 
     private List<String> getLore(String path) {
-        List<String> lore = configFile.getStringList(path + "lore");
+        List<String> lore = configFile.getStringList(path + "description");
         if (lore == null || lore.isEmpty()) return null;
         return utilities.translateColorStringList(lore);
     }
