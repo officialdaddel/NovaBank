@@ -171,4 +171,8 @@ public class DatabaseManager {
     public boolean useDatabase() {
         return configFile.getBoolean("database.use");
     }
+
+    public Connection getConnection() {
+        return connection;
+    }
 }

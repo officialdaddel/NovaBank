@@ -2,6 +2,7 @@ package net.daddel.novaBank;
 
 import net.daddel.novaBank.commands.BankAdminCommand;
 import net.daddel.novaBank.commands.BankCommand;
+import net.daddel.novaBank.commands.MigrateBankCommand;
 import net.daddel.novaBank.files.BankDataFile;
 import net.daddel.novaBank.files.ConfigFile;
 import net.daddel.novaBank.files.LanguageFile;
@@ -69,7 +70,7 @@ public final class NovaBank extends JavaPlugin {
 
     private void loadManagers() {
         inputManager = new InputManager();
-        utilities = new Utilities(this, languageFile);
+        utilities = new Utilities(this, languageFile, configFile);
 
         economyManager = new EconomyManager(this);
         bankFileManager = new BankFileManager(bankDataFile);
@@ -87,6 +88,8 @@ public final class NovaBank extends JavaPlugin {
 
         getCommand("bankadmin").setExecutor(
                 new BankAdminCommand(this, utilities, languageFile, bankManager, placeholder));
+
+        getCommand("migratebank").setExecutor(new MigrateBankCommand(this, databaseManager, utilities));
     }
 
     private void registerEvents() {
@@ -98,7 +101,7 @@ public final class NovaBank extends JavaPlugin {
     }
 
     private void registerTabCompleter() {
-        getCommand("bank").setTabCompleter(new BankTabCompleter(utilities));
+        getCommand("bank").setTabCompleter(new BankTabCompleter(configFile));
         getCommand("bankadmin").setTabCompleter(new BankAdminTabCompleter(utilities));
     }
 

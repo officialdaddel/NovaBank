@@ -19,7 +19,7 @@ default_admin_commands: "&7/bankadmin &7<&creload&7|&cset&7|&cadd&7|&cremove&7|&
 
 # Je berichten aanpassen
 current-balance: "%novabank_prefix% &7Je huidige rekeningsaldo is: &a$%novabank_balance%"
-no-permissions: "%novabank_prefix% &4Je hebt geen toestemming om dit command uit te voeren!"
+no-permissions: "%novabank_prefix% &4Je hebt geen toestemming om dit command uit te voeren! &8%novabank_missing_permission%"
 wrong-usage: "%novabank_prefix% &7Gebruik: %novabank_default_commands%"
 wrong-usage-admin: "%novabank_prefix% &7Gebruik: %novabank_default_admin_commands%"
 not-enough-money: "%novabank_prefix% &4Je hebt niet genoeg geld!"

@@ -46,17 +46,25 @@ public class Placeholder extends PlaceholderExpansion {
 
         return switch (identifier.toLowerCase()) {
             case "prefix" -> utilities.getPrefix();
-            case "balance" -> String.valueOf(bankManager.getBalance(player.getUniqueId()));
+            case "missing_permission" -> playerPlaceholder.getMissingPermission(player);
+
+            case "balance" -> String.valueOf(bankManager.getBankBalance(player.getUniqueId()));
+            case "formatted_balance" -> utilities.formatString(bankManager.getBankBalance(player.getUniqueId()));
+
             case "default_commands" -> utilities.getDefaultCommands();
             case "default_admin_commands" -> utilities.getDefaultAdminCommands();
+
             case "deposit_amount" -> String.valueOf(moneyPlaceholder.getDepositAmount(player));
             case "withdraw_amount" -> String.valueOf(moneyPlaceholder.getWithdrawAmount(player));
+
             case "invalid_player" -> playerPlaceholder.getInvalidPlayer(player);
             case "target" -> playerPlaceholder.getTargetPlayer(player);
+            case "player_name" -> player.getName();
+
             case "removed_amount" ->  String.valueOf(moneyPlaceholder.getRemovedAmount(player));
             case "added_amount" ->  String.valueOf(moneyPlaceholder.getAddedAmount(player));
             case "setting_amount" -> String.valueOf(moneyPlaceholder.getStatutoryAmount(player));
-            case "player_name" -> player.getName();
+
             default -> null;
         };
     }
@@ -113,6 +121,7 @@ public class Placeholder extends PlaceholderExpansion {
     public static class PlayerPlaceholder {
         private final Map<UUID, String> invalidPlayer = new HashMap<>();
         private final Map<UUID, String> targetPlayer = new HashMap<>();
+        private final Map<UUID, String> missingPermission = new HashMap<>();
 
         public void setInvalidPlayer(Player player, String playerName) {
             invalidPlayer.put(player.getUniqueId(), playerName);
@@ -122,12 +131,20 @@ public class Placeholder extends PlaceholderExpansion {
             targetPlayer.put(player.getUniqueId(), playerName);
         }
 
+        public void setMissingPermission(Player player, String permission) {
+            missingPermission.put(player.getUniqueId(), permission);
+        }
+
         private String getInvalidPlayer(Player player) {
             return invalidPlayer.getOrDefault(player.getUniqueId(), null);
         }
 
         private String getTargetPlayer(Player player) {
             return targetPlayer.getOrDefault(player.getUniqueId(), null);
+        }
+
+        private String getMissingPermission(Player player) {
+            return missingPermission.getOrDefault(player.getUniqueId(), null);
         }
 
     }

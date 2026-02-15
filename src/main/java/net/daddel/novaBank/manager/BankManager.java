@@ -1,6 +1,5 @@
 package net.daddel.novaBank.manager;
 
-import me.clip.placeholderapi.PlaceholderAPI;
 import net.daddel.novaBank.files.LanguageFile;
 import net.daddel.novaBank.util.Utilities;
 import org.bukkit.entity.Player;
@@ -27,7 +26,7 @@ public class BankManager {
     public void depositMoney(Player player, int amount) {
         UUID uuid = player.getUniqueId();
 
-        int currentBalance = getBalance(uuid);
+        int currentBalance = getBankBalance(uuid);
 
         if(!economyManager.hasEnoughMoney(player, amount)){
             utilities.notEnoughMoney(player);
@@ -51,7 +50,7 @@ public class BankManager {
     public void withdrawMoney(Player player, int amount) {
         UUID uuid = player.getUniqueId();
 
-        int currentBalance = getBalance(uuid);
+        int currentBalance = getBankBalance(uuid);
 
         if(currentBalance < amount) {
             utilities.notEnoughMoney(player);
@@ -73,7 +72,7 @@ public class BankManager {
 
     public void resetBalance(Player player) {
         UUID uuid = player.getUniqueId();
-        int amount = getBalance(uuid);
+        int amount = getBankBalance(uuid);
 
         if (databaseManager.useDatabase()) {
             databaseManager.removeAmount(uuid, amount);
@@ -99,7 +98,7 @@ public class BankManager {
     public void addMoney(Player player, Player target, int amount) {
         UUID uuid = target.getUniqueId();
 
-        int newBalance = amount + getBalance(uuid);
+        int newBalance = amount + getBankBalance(uuid);
 
         if (databaseManager.useDatabase()) {
             databaseManager.setAmount(uuid, newBalance);
@@ -123,7 +122,11 @@ public class BankManager {
         utilities.sendPlaceholderMessage(player, "set-money-confirm");
     }
 
-    public int getBalance(UUID uuid) {
+    public int getBankBalance(UUID uuid) {
         return (databaseManager.useDatabase() ? databaseManager.getAmount(uuid) : bankFileManager.getAmount(uuid));
+    }
+
+    public int getEconomyBalance(Player player) {
+        return economyManager.getPlayerMoney(player);
     }
 }

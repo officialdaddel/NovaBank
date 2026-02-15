@@ -43,4 +43,8 @@ public class EconomyManager {
     public boolean hasEnoughMoney(OfflinePlayer player, double amount) {
         return economy != null && economy.has(player, amount);
     }
+
+    public int getPlayerMoney(OfflinePlayer player) {
+        return economy == null ? 0 : (int) economy.getBalance(player);
+    }
 }

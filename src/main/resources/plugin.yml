@@ -20,3 +20,6 @@ commands:
     description: Administrative command for NovaBank
     aliases:
       - ba
+  migratebank:
+    description: Migrate from old table to new (tempory command)
+    permissions: novabank.admin

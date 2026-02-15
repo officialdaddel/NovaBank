@@ -1,6 +1,8 @@
 package net.daddel.novaBank.util;
 
 import me.clip.placeholderapi.PlaceholderAPI;
+import net.daddel.novaBank.NovaBank;
+import net.daddel.novaBank.files.ConfigFile;
 import net.daddel.novaBank.files.LanguageFile;
 import net.md_5.bungee.api.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -13,12 +15,14 @@ import java.util.List;
 public class Utilities {
     private final LanguageFile languageFile;
     private final JavaPlugin plugin;
+    private final ConfigFile configFile;
     private final String prefix = ChatColor.of("#8A2BE5") + "NovaBank §8»§7";
 
     private final String perms = "novabank.";
-    public Utilities(JavaPlugin plugin, LanguageFile languageFile) {
+    public Utilities(JavaPlugin plugin, LanguageFile languageFile, ConfigFile configFile) {
         this.languageFile = languageFile;
         this.plugin = plugin;
+        this.configFile = configFile;
     }
 
     public String getVersion(){
@@ -76,6 +80,25 @@ public class Utilities {
 
     public String translateColorString(String message){
         return ChatColor.translateAlternateColorCodes('&', message);
+    }
+
+    public String formatString(long number) {
+        String separator = configFile.getString("number-seperator");
+
+        String numStr = String.valueOf(number);
+        StringBuilder sb = new StringBuilder();
+
+        int len = numStr.length();
+        int firstGroup = len % 3 == 0 ? 3 : len % 3;
+
+        sb.append(numStr, 0, firstGroup);
+
+        for (int i = firstGroup; i < len; i += 3) {
+            sb.append(separator);
+            sb.append(numStr, i, i + 3);
+        }
+
+        return sb.toString();
     }
 
     public List<String> translateColorStringList(List<String> list){

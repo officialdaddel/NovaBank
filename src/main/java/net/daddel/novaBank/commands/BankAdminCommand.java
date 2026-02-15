@@ -64,6 +64,7 @@ public class BankAdminCommand implements CommandExecutor {
         }
 
         if (!hasPermission(player, "reload")) {
+            placeholder.getPlayerPlaceholder().setMissingPermission(player, "novabank.admin.reload");
             utilities.noPerms(player);
             return;
         }
@@ -79,6 +80,7 @@ public class BankAdminCommand implements CommandExecutor {
         }
 
         if(!hasPermission(player, "reset")) {
+            placeholder.getPlayerPlaceholder().setMissingPermission(player, "novabank.admin.reset");
             utilities.noPerms(player);
             return;
         }
@@ -102,6 +104,7 @@ public class BankAdminCommand implements CommandExecutor {
         }
 
         if (!hasPermission(player, "remove")) {
+            placeholder.getPlayerPlaceholder().setMissingPermission(player, "novabank.admin.remove");
             utilities.noPerms(player);
             return;
         }
@@ -136,6 +139,7 @@ public class BankAdminCommand implements CommandExecutor {
         }
 
         if (!hasPermission(player, "add")) {
+            placeholder.getPlayerPlaceholder().setMissingPermission(player, "novabank.admin.add");
             utilities.noPerms(player);
             return;
         }
@@ -170,6 +174,7 @@ public class BankAdminCommand implements CommandExecutor {
         }
 
         if (!hasPermission(player, "set")) {
+            placeholder.getPlayerPlaceholder().setMissingPermission(player, "novabank.admin.set");
             utilities.noPerms(player);
             return;
         }

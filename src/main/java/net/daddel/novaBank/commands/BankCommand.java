@@ -61,6 +61,7 @@ public class BankCommand implements CommandExecutor {
 
     private void handleBalanceCommand(Player player){
         if (!hasBankPermission(player, "balance")) {
+            placeholder.getPlayerPlaceholder().setMissingPermission(player, "novabank.balance");
             utilities.noPerms(player);
             return;
         }
@@ -71,6 +72,7 @@ public class BankCommand implements CommandExecutor {
 
     private void handleDefaultCommand(Player player) {
         if (!hasBankPermission(player, "open")) {
+            placeholder.getPlayerPlaceholder().setMissingPermission(player, "novabank.open");
             utilities.noPerms(player);
             return;
         }
@@ -90,11 +92,22 @@ public class BankCommand implements CommandExecutor {
         }
 
         if (!hasBankPermission(player, "deposit")) {
+            placeholder.getPlayerPlaceholder().setMissingPermission(player, "novabank.deposit");
             utilities.noPerms(player);
             return;
         }
 
         String amountString = args[1];
+
+        if (amountString.equalsIgnoreCase("all")) {
+            int currentBalance = bankManager.getEconomyBalance(player);
+
+            placeholder.getMoneyPlaceholder().setDepositAmount(player, currentBalance);
+
+            bankManager.depositMoney(player, currentBalance);
+            return;
+        }
+
         if (!utilities.isInteger(amountString)) {
             utilities.wrongCommandUsage(player);
             return;
@@ -114,11 +127,22 @@ public class BankCommand implements CommandExecutor {
         }
 
         if (!hasBankPermission(player, "withdraw")) {
+            placeholder.getPlayerPlaceholder().setMissingPermission(player, "novabank.withdraw");
             utilities.noPerms(player);
             return;
         }
 
         String amountString = args[1];
+
+        if (amountString.equalsIgnoreCase("all")) {
+            int currentBalance = bankManager.getBankBalance(player.getUniqueId());
+
+            placeholder.getMoneyPlaceholder().setWithdrawAmount(player, currentBalance);
+
+            bankManager.withdrawMoney(player, currentBalance);
+            return;
+        }
+
         if (!utilities.isInteger(amountString)) {
             utilities.wrongCommandUsage(player);
             return;
